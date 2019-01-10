@@ -8,7 +8,7 @@ class GIMPSApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       routes: routes,
-      initialRoute: '/',
+      initialRoute: '/login',
     );
   }
 }

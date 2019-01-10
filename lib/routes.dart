@@ -1,5 +1,6 @@
 import 'views.dart';
 
 final routes = {
-  '/': (context) => new LoginPage(),
+  '/': (context) => new CPUListPage(),
+  '/login': (comtext) => new LoginPage(),
 };

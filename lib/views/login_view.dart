@@ -1,20 +1,5 @@
 import 'package:flutter/material.dart';
 
-class CPUListPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'CPU List',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('CPU List'),
-        ),
-        body: new Center(),
-      ),
-    );
-  }
-}
-
 class LoginData {
   String username = '';
   String password = '';
@@ -22,6 +7,10 @@ class LoginData {
 
 class LoginPage extends StatelessWidget {
   LoginData _loginData = new LoginData();
+
+  void submit() {
+    print('Username: ${_loginData.username}');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +20,8 @@ class LoginPage extends StatelessWidget {
         this._loginData.username = value;
       },
       decoration: new InputDecoration(
-        labelText: 'Username',
+        hintText: 'Username',
+        contentPadding: EdgeInsets.all(8.0),
       ),
     );
 
@@ -42,27 +32,37 @@ class LoginPage extends StatelessWidget {
         this._loginData.password = value;
       },
       decoration: new InputDecoration(
-        labelText: 'Password',
+        hintText: 'Password',
+        contentPadding: EdgeInsets.all(8.0),
       ),
+    );
+
+    final spacer = new SizedBox(
+      height: 8.0,
     );
 
     final submitButton = new RaisedButton(
       padding: EdgeInsets.all(8.0),
       child: Text('Login'),
-      onPressed: () {},
+      color: Colors.blue,
+      textColor: Colors.white,
+      onPressed: this.submit,
     );
 
     return new MaterialApp(
       title: 'Great Internet Mersenne Prime Search',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Great Internet Mersenne Prime Search'),
+          title: new Text('Login to GIMPS'),
         ),
-        body: new Form(
+        body: new Container(
+          padding: EdgeInsets.all(16.0),
           child: new Column(
             children: <Widget>[
               usernameField,
+              spacer,
               passwordField,
+              spacer,
               submitButton,
             ],
           ),
